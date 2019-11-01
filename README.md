@@ -1,4 +1,4 @@
-# Catalog Services
+# Catalog Service
 
 Service responsible for managing product
 
