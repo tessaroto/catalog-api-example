@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: Catalog Service
+  main:
+    banner-mode: "off"
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  redis:
+    host: 127.0.0.1
+    port: 6379
+         
+logging:
+  level:
+    .: error
+
+ifood:
+  cache:
+    Product: 1 
+    
