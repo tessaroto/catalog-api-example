@@ -27,5 +27,9 @@ logging:
 
 ifood:
   cache:
-    Product: 1 
+    Product: 60
+    
+  job:
+    product:
+      interval: 10
     
