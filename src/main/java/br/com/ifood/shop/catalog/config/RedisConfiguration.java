@@ -51,11 +51,6 @@ public class RedisConfiguration {
         return RedisCacheManager.RedisCacheManagerBuilder
                 .fromConnectionFactory(redisConnectionFactory)
                 .withInitialCacheConfigurations(cacheConfigurations)
-                .cacheDefaults(
-                    RedisCacheConfiguration.defaultCacheConfig()
-                            .entryTtl(Duration.ofDays(1))
-                            .serializeValuesWith(jsonSerializer)
-                )
                 .build();
     }
     

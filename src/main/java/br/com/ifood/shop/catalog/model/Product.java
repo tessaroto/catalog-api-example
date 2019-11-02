@@ -13,11 +13,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity(name = "product")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Setter
 @Getter
 public class Product  implements Serializable{
@@ -25,7 +27,7 @@ public class Product  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;    
     private BigDecimal price;
     private String name;
