@@ -1,6 +1,7 @@
 spring:
   application:
     name: Catalog Service
+    version: '@project.version@'
   main:
     banner-mode: "off"
   jpa:
@@ -27,9 +28,10 @@ logging:
 
 ifood:
   cache:
-    Product: 60
+    Product: 86400
     
   job:
+    enabled: true
     product:
       interval: 10
     

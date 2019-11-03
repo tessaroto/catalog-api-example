@@ -2,6 +2,7 @@ package br.com.ifood.shop.catalog.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,5 +32,7 @@ public class Product  implements Serializable{
     private Integer id;    
     private BigDecimal price;
     private String name;
+    private Date createdDate;
+    private Date modifedDate;
 
 }

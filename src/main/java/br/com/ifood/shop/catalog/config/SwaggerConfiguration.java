@@ -1,5 +1,6 @@
 package br.com.ifood.shop.catalog.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,7 +8,6 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -16,6 +16,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
+	@Value("${spring.application.version:unknown}")
+	private String appVersion;
+	
+	@Value("${spring.application.name:unknown}")
+	private String appName;
+	
 	@Bean
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -26,12 +32,8 @@ public class SwaggerConfiguration {
 	}
 	
 	private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("Catalog Service")
-            .description("Transaction Account Service")
-            .contact(new Contact("Somebody", "www.somebody.net", "Somebody@gmail.com"))
-            .license("Apache 2.0")
-            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-            .version("1.0.0")
+        return new ApiInfoBuilder().title(appName)
+            .version(appVersion)
             .build();
     }
 	

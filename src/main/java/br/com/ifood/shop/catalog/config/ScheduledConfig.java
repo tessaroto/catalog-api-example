@@ -1,5 +1,6 @@
 package br.com.ifood.shop.catalog.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -11,8 +12,9 @@ import net.javacrumbs.shedlock.spring.annotation.EnableSchedulerLock;
 
 @Configuration
 @EnableScheduling
+@ConditionalOnProperty(prefix = "ifood.job", name = "enabled")
 @EnableSchedulerLock(defaultLockAtMostFor = "PT30S")
-public class ShedLockConfig {
+public class ScheduledConfig {
 	
 	@Bean
 	public LockProvider lockProvider(RedisConnectionFactory connectionFactory) {
